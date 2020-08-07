@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/icomoon/style.css">
+    <title>Sign Up</title>
+</head>
+<body>
+    
+    <div class="sign-up-form">
+    <h1>SIGN UP</h1>
+    <hr>
+    <form action="#" onsubmit="return validation()">
+        <div class="form-group">
+            <label>Your username</label>
+            <input type="text" id="username" class="input-box"  placeholder="&#xe971; mysuperusername690">
+            <span id="usererror" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Your email</label>
+            <input type="text" id="email" class="input-box" placeholder="&#xf0e0; mysupermail@mail.com">
+            <span id="emailerror" class="text-danger"></span>
+        </div>
+
+         <div class="form-group">
+            <label>Your password</label>
+            <input type="password" id="password" class="input-box" placeholder="&#xe98d; X8dft90E0">
+            <span id="passworderror" class="text-danger "></span>
+         </div>
+
+         <div class="form-group">
+            <label>Please confirm your password</label>
+            <input type="password" id="cpassword" class="input-box" placeholder="&#xe98d; X8dft90E0">
+            <span id="cpassworderror" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+         <button type="submit" class="signup-btn">SIGN UP</button><br>
+        </div>
+    </form>
+    <div class="bottom">
+        <div class="member">Already a member?</div>
+        <div class="gobtn">
+            <button type="submit" class="go-btn">Go and Log In</button>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+  
+   function validation()
+   {
+   var username = document.getElementById('username').value;
+   var email = document.getElementById('email').value;
+   var password = document.getElementById('password').value;
+   var cpassword = document.getElementById('cpassword').value;
+   
+   var usernamecheck= /^[A-Za-z. ]{3,30}$/;
+   var emailcheck= /^[a-zA-Z_]{3,}@[a-zA-Z]{3,}[.]{1}[A-Za-z.]{2,6}$/ ;
+   var passwordcheck= /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/;
+   var cpasswordcheck= /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/;
+   
+   if(usernamecheck.test(username)){
+       document.getElementById('usererror').innerHTML="";
+   }else{
+       document.getElementById('usererror').innerHTML="*Username is invalid";
+       return false;
+   }
+
+   if(emailcheck.test(email)){
+       document.getElementById('emailerror').innerHTML="";
+   }else{
+       document.getElementById('emailerror').innerHTML="*Email is invalid";
+       return false;
+   }
+
+
+   if(passwordcheck.test(password)){
+       document.getElementById('passworderror').innerHTML="";
+   }else{
+       document.getElementById('passworderror').innerHTML="*Password is invalid";
+       return false;
+   }
+  
+   if(cpassword.match(password)){
+        document.getElementById('cpassworderror').innerHTML="";
+   }else{
+       document.getElementById('cpassworderror').innerHTML="*Confirm your password";
+       return false;
+   }
+
+
+   }
+
+</script>
+
+
+
+</body>
+</html>
